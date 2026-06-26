@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "775099735569",
+    "project_id": "carrefour-c0e83",
+    "storage_bucket": "carrefour-c0e83.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:775099735569:android:10ceb942aea122f24f5bb0",
+        "android_client_info": {
+          "package_name": "mn.io.carrefour"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtlEzKBVlW_xgzZ6Czh0f-Qx-TEl08CTc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

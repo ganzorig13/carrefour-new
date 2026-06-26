@@ -1,0 +1,2 @@
+/Users/io/Desktop/carrefour/android/app/.cxx/Debug/h5758o2m/x86/CMakeFiles/edit_cache.dir
+/Users/io/Desktop/carrefour/android/app/.cxx/Debug/h5758o2m/x86/CMakeFiles/rebuild_cache.dir

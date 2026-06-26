@@ -1,0 +1,2 @@
+/Users/io/Desktop/carrefour/android/app/.cxx/RelWithDebInfo/cmo2t2r3/x86_64/CMakeFiles/edit_cache.dir
+/Users/io/Desktop/carrefour/android/app/.cxx/RelWithDebInfo/cmo2t2r3/x86_64/CMakeFiles/rebuild_cache.dir

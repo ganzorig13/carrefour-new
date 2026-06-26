@@ -1,0 +1,125 @@
+name: carrefour
+description: "A new Flutter project."
+
+publish_to: 'none' 
+
+version: 1.0.13+15
+
+environment:
+  sdk: '>=3.3.1 <4.0.0'
+
+dependencies:
+  app_settings:
+  badges:
+  cached_network_image:
+  collection:
+  cupertino_icons: ^1.0.6
+  currency_text_input_formatter:
+  device_info_plus:
+  dio:
+  flutter:
+    sdk: flutter
+  fluttertoast:
+  flutter_local_notifications: 
+  flutter_pdfview:
+  flutter_svg:
+  flutter_widget_from_html:
+  firebase_core: 
+  firebase_messaging: 
+  get:
+  get_storage:
+  google_maps_flutter: 
+  g_json:
+  intl:
+  image_picker:
+  local_auth:
+  lottie: 
+  mobile_scanner: 
+  money_formatter:
+  package_info_plus:
+  path_provider:
+  permission_handler:
+  photo_view:
+  pull_to_refresh:
+  qr_flutter:
+  smooth_page_indicator:
+  story:
+  syncfusion_flutter_core:
+  syncfusion_flutter_charts: 
+  syncfusion_flutter_pdfviewer: 
+  url_launcher:
+  uuid:
+  webview_flutter: ^4.13.1
+  widget_to_marker:
+  flutter_native_splash:
+
+dependency_overrides:
+  # Android WebView console message crash (onConsoleMessage → WebChromeClientImpl serialization)
+  webview_flutter_android: ^4.10.11
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons:
+
+flutter_launcher_icons:
+  android: false
+  ios: true
+  image_path: "assets/images/app.icon.jpg"
+  
+flutter_native_splash:
+  ios: false
+  color: "#ffffff"
+  image: assets/images/android.splash.png
+  android_12:
+    color: "#ffffff"
+    # icon_background_color: "#ffffff"
+    image: assets/images/android.splash.12.png
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/fonts/
+    - assets/icons/
+    - assets/images/
+  
+  fonts:
+    - family: Gilroy-Black
+      fonts:
+        - asset: assets/fonts/GIP-Black.otf
+
+    - family: Gilroy-ExtraBold
+      fonts:
+        - asset: assets/fonts/GIP-ExtraBold.otf
+
+    - family: Gilroy-Bold
+      fonts:
+        - asset: assets/fonts/GIP-Bold.otf
+
+    - family: Gilroy-SemiBold
+      fonts:
+        - asset: assets/fonts/GIP-SemiBold.otf
+
+    - family: Gilroy-Medium
+      fonts:
+        - asset: assets/fonts/GIP-Medium.otf
+
+    - family: Gilroy-Regular
+      fonts:
+        - asset: assets/fonts/GIP-Regular.otf
+
+    - family: Gilroy-Light
+      fonts:
+        - asset: assets/fonts/GIP-Light.otf
+
+    - family: Gilroy-UltraLight
+      fonts:
+        - asset: assets/fonts/GIP-UltraLight.otf
+
+    - family: Gilroy-Thin
+      fonts:
+        - asset: assets/fonts/GIP-Thin.otf
+        
