@@ -49,6 +49,10 @@ class SignInOtpController extends IOController {
     sendOtp(false);
   }
 
+  void onTapChangePhone() {
+    MenuRoute.toChangeNumberRequest();
+  }
+
   void startLoading() {
     isLoading.value = true;
     loginButton.update((val) {

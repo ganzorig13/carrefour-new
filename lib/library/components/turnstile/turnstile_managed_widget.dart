@@ -2,7 +2,14 @@ import 'package:carrefour/library/library.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-enum TurnstileStatus { loading, verifying, interactive, success, error, expired }
+enum TurnstileStatus {
+  loading,
+  verifying,
+  interactive,
+  success,
+  error,
+  expired
+}
 
 class TurnstileManagedWidget extends StatefulWidget {
   final String siteKey;
@@ -50,7 +57,11 @@ class TurnstileManagedWidgetState extends State<TurnstileManagedWidget> {
       )
       ..setNavigationDelegate(
         NavigationDelegate(
-          onPageFinished: (_) {
+          onPageFinished: (_) async {
+            final result = await _controller.runJavaScriptReturningResult(
+              'document.readyState',
+            );
+            debugPrint(result.toString());
             setState(() => _status = TurnstileStatus.verifying);
           },
         ),

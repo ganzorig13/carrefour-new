@@ -39,6 +39,18 @@ class SignInOtpScreen extends GetView<SignInOtpController> {
                         model: controller.otpTimer.value,
                         onTap: controller.onTapGetOtp,
                       ),
+                      // const SizedBox(height: 16),
+                      // GestureDetector(
+                      //   onTap: controller.onTapChangePhone,
+                      //   child: Text(
+                      //     'Утасны дугаараа солих',
+                      //     style: IOStyles.body2Regular.copyWith(
+                      //       color: IOColors.brand500,
+                      //       decoration: TextDecoration.underline,
+                      //     ),
+                      //     textAlign: TextAlign.center,
+                      //   ),
+                      // ),
                       const Spacer(),
                       IOButtonWidget(
                         model: controller.loginButton.value,

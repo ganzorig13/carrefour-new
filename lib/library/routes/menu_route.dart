@@ -52,6 +52,13 @@ class MenuRoute {
     );
   }
 
+  static toChangeNumberRequest() {
+    return Get.to(
+      () => const SignInRecoverCustomerScreen(),
+      binding: SignInRecoverCustomerBinding(),
+    );
+  }
+
   static toPhoneChangeOtp({required String phone}) {
     return Get.to(
       () => const PhoneChangeOtpScreen(),

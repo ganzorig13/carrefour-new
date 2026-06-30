@@ -15,14 +15,16 @@ Future<String?> showValidationTokenDialog() async {
     barrierDismissible: false,
     builder: (ctx) {
       final navigator = Navigator.of(ctx);
-      final screenWidth = MediaQuery.sizeOf(ctx).width;
+      final screenWidth = MediaQuery.of(context).size.width;
       final maxWidth = screenWidth - (_kCaptchaDialogHorizontalMargin * 2);
 
       return Center(
         child: ConstrainedBox(
           constraints: BoxConstraints(
             minWidth: _kCaptchaDialogMinWidth,
-            maxWidth: maxWidth,
+            maxWidth: _kCaptchaDialogMinWidth > maxWidth
+                ? _kCaptchaDialogMinWidth
+                : maxWidth,
           ),
           child: Material(
             borderRadius: BorderRadius.circular(12),
@@ -30,19 +32,19 @@ Future<String?> showValidationTokenDialog() async {
             child: Padding(
               padding: const EdgeInsets.all(24),
               child: TurnstileManagedWidget(
-                  siteKey: kTurnstileSiteKey,
-                  baseUrl: domain,
-                  onToken: (token) {
-                    Future.delayed(const Duration(milliseconds: 200), () {
-                      if (navigator.mounted) navigator.pop(token);
-                    });
-                  },
-                  onError: () {},
-                ),
+                siteKey: kTurnstileSiteKey,
+                baseUrl: domain,
+                onToken: (token) {
+                  Future.delayed(const Duration(milliseconds: 200), () {
+                    if (navigator.mounted) navigator.pop(token);
+                  });
+                },
+                onError: () {},
               ),
             ),
           ),
-        );
+        ),
+      );
     },
   );
 }

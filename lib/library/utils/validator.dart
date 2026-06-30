@@ -63,7 +63,7 @@ class Validator {
         pattern = r'^[а-яА-ЯөүӨҮёЁ-]{1,50}$';
         break;
       case ValidatorType.pin:
-        pattern = r'^[0-9]{4}$';
+        pattern = r'^[0-9]{6}$';
         break;
 
       case ValidatorType.noSpecialChar:
