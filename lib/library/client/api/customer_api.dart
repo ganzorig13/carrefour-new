@@ -20,7 +20,8 @@ class CustomerApi extends IOClient {
     final data = <String, dynamic>{
       'phone': phone,
       'code_type': type,
-      if (validationToken != null && validationToken.isNotEmpty) 'validation_token': validationToken,
+      if (validationToken != null && validationToken.isNotEmpty)
+        'validation_token': validationToken,
     };
     return sendPostRequest(path, data: data);
   }
@@ -36,7 +37,8 @@ class CustomerApi extends IOClient {
       'phone': phone,
       'code_type': type,
       'auth_code': otp,
-      if (validationToken != null && validationToken.isNotEmpty) 'validation_token': validationToken,
+      if (validationToken != null && validationToken.isNotEmpty)
+        'validation_token': validationToken,
     };
     return sendPostRequest(path, data: data);
   }
@@ -336,7 +338,7 @@ class CustomerApi extends IOClient {
   }) {
     const path = '/api/customer/ebarimt/change';
     final data = {
-      'ebarimt_number': number,
+      'ebarimt_number': number.isEmpty ? null : number,
       'is_print_barimt': isPrint,
     };
     return sendPostRequest(path, data: data);
