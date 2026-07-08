@@ -1,6 +1,6 @@
 import 'package:carrefour/library/library.dart';
 import 'package:carrefour/screens/screens.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class EbarimtController extends IOController {
@@ -11,10 +11,14 @@ class EbarimtController extends IOController {
 
   final isChecked = false.obs;
   final ebarimt = IOTextfieldModel(
-    label: 'Иргэний 8 оронтой кодоо оруулаарай',
+    label: 'Иргэний 8-12 оронтой кодоо оруулаарай',
     placeholder: '12345678',
-    maxLength: 8,
+    minLength: 8,
+    maxLength: 12,
     keyboardType: TextInputType.number,
+    inputFormatters: [
+      FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+    ],
   );
 
   final saveButton = IOButtonModel(
@@ -35,7 +39,9 @@ class EbarimtController extends IOController {
 
   void checkValidation() {
     saveButton.update((val) {
-      val?.isEnabled = ebarimt.value.length == 8;
+      val?.isEnabled =
+          (ebarimt.value.length >= 8 && ebarimt.value.length <= 12) ||
+              ebarimt.value.isEmpty;
     });
   }
 

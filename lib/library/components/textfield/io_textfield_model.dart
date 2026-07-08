@@ -13,6 +13,8 @@ class IOTextfieldModel {
   bool isSecure = false;
   bool isEnabled = true;
   bool readOnly = false;
+  int? minLength;
+  int minLine = 0;
   int? maxLength;
   int maxLine = 1;
 
@@ -29,6 +31,8 @@ class IOTextfieldModel {
     this.inputFormatters,
     this.maxLength,
     this.maxLine = 1,
+    this.minLength,
+    this.minLine = 0,
   });
 
   final focusNode = FocusNode();
