@@ -178,13 +178,13 @@ class CustomerApi extends IOClient {
   Future<IOResponse> recover({
     required String email,
     required String newPhone,
-    required String validationToken,
+    required String? validationToken,
   }) {
     const path = '/api/customer/recover';
     final data = <String, dynamic>{
       'email': email,
       'new_phone': newPhone,
-      'validation_token': validationToken,
+      // 'validation_token': validationToken,
     };
     return sendPostRequest(path, data: data, hasToken: false);
   }
@@ -200,7 +200,7 @@ class CustomerApi extends IOClient {
       'auth_id': authId,
       'msg_code': msgCode,
       'email_code': emailCode,
-      'validation_token': validationToken,
+      // 'validation_token': validationToken,
     };
     return sendPostRequest(path, data: data, hasToken: false);
   }

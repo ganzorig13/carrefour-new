@@ -125,16 +125,16 @@ class SignInRecoverCustomerController extends IOController {
     startLoading();
 
     // If this flow is protected by captcha in backend, reuse the existing dialog.
-    final validationToken = await showValidationTokenDialog();
-    if (validationToken == null || validationToken.isEmpty) {
-      stopLoading();
-      return;
-    }
+    // final validationToken = await showValidationTokenDialog();
+    // if (validationToken == null || validationToken.isEmpty) {
+    //   stopLoading();
+    //   return;
+    // }
 
     final response = await CustomerApi().recover(
       email: emailField.value,
       newPhone: newPhoneField.value,
-      validationToken: validationToken,
+      validationToken: 'validationToken',
     );
 
     stopLoading();
@@ -171,17 +171,17 @@ class SignInRecoverCustomerController extends IOController {
 
     startLoading();
 
-    final validationToken = await showValidationTokenDialog();
-    if (validationToken == null || validationToken.isEmpty) {
-      stopLoading();
-      return;
-    }
+    // final validationToken = await showValidationTokenDialog();
+    // if (validationToken == null || validationToken.isEmpty) {
+    //   stopLoading();
+    //   return;
+    // }
 
     final response = await CustomerApi().recoverValidate(
       authId: id,
       msgCode: msgCodeField.value,
       emailCode: emailCodeField.value,
-      validationToken: validationToken,
+      validationToken: 'validationToken',
     );
 
     stopLoading();

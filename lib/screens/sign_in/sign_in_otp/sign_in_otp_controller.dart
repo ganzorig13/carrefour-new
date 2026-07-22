@@ -71,26 +71,37 @@ class SignInOtpController extends IOController {
     if (isInitial) isInitialLoading.value = true;
     startLoading();
 
-    final token = await showValidationTokenDialog();
-    if (token == null || token.isEmpty) {
-      if (isInitial) isInitialLoading.value = false;
-      stopLoading();
-      return;
-    }
+    // final token = 'true';
+    // await showValidationTokenDialog();
+    // if (token == null || token.isEmpty) {
+    //   if (isInitial) isInitialLoading.value = false;
+    //   stopLoading();
+    //   return;
+    // }
+
+    // Log.success('----------------------------------', 'token');
+    // Log.success(token, 'token');
+    // Log.success('----------------------------------', 'token');
 
     var response = await CustomerApi().sendOtp(
       phone: phone,
       type: 'login',
-      validationToken: token.isNotEmpty ? token : null,
+      validationToken: null,
     );
-    response = await retryWithCaptchaIfRequired(
-      response,
-      (t) => CustomerApi().sendOtp(
-        phone: phone,
-        type: 'login',
-        validationToken: t,
-      ),
-    );
+    // response = await retryWithCaptchaIfRequired(
+    //   response,
+    //   (t) => CustomerApi().sendOtp(
+    //     phone: phone,
+    //     type: 'login',
+    //     validationToken: t,
+    //   ),
+    // );
+
+    // response = await CustomerApi().sendOtp(
+    //   phone: phone,
+    //   type: 'login',
+    //   validationToken: 'true',
+    // );
 
     if (isInitial) isInitialLoading.value = false;
     stopLoading();
@@ -114,26 +125,26 @@ class SignInOtpController extends IOController {
 
   Future checkOtp() async {
     startLoading();
-    final token = await showValidationTokenDialog();
-    if (token == null || token.isEmpty) {
-      stopLoading();
-      return;
-    }
+    // final token = await showValidationTokenDialog();
+    // if (token == null || token.isEmpty) {
+    //   stopLoading();
+    //   return;
+    // }
     var response = await CustomerApi().checkOtp(
       phone: phone,
       type: 'login',
       otp: otpField.value,
-      validationToken: token,
+      // validationToken: token,
     );
-    response = await retryWithCaptchaIfRequired(
-      response,
-      (t) => CustomerApi().checkOtp(
-        phone: phone,
-        type: 'login',
-        otp: otpField.value,
-        validationToken: t,
-      ),
-    );
+    // response = await retryWithCaptchaIfRequired(
+    //   response,
+    //   (t) => CustomerApi().checkOtp(
+    //     phone: phone,
+    //     type: 'login',
+    //     otp: otpField.value,
+    //     validationToken: t,
+    //   ),
+    // );
 
     if (response.isSuccess) {
       final token = response.json['token'].stringValue;

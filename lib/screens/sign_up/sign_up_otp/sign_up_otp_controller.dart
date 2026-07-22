@@ -55,29 +55,29 @@ class SignUpOtpController extends IOController {
       val?.isEnabled = true;
     });
 
-    final token = await showValidationTokenDialog();
-    if (token == null || token.isEmpty) {
-      if (isInitial) isInitialLoading.value = false;
-      isLoading.value = false;
-      nextButton.update((val) {
-        val?.isEnabled = false;
-      });
-      return;
-    }
+    // final token = await showValidationTokenDialog();
+    // if (token == null || token.isEmpty) {
+    //   if (isInitial) isInitialLoading.value = false;
+    //   isLoading.value = false;
+    //   nextButton.update((val) {
+    //     val?.isEnabled = false;
+    //   });
+    //   return;
+    // }
 
     var response = await CustomerApi().sendOtp(
       phone: model.phone,
       type: 'register',
-      validationToken: token.isNotEmpty ? token : null,
+      // validationToken: token.isNotEmpty ? token : null,
     );
-    response = await retryWithCaptchaIfRequired(
-      response,
-      (t) => CustomerApi().sendOtp(
-        phone: model.phone,
-        type: 'register',
-        validationToken: t,
-      ),
-    );
+    // response = await retryWithCaptchaIfRequired(
+    //   response,
+    //   (t) => CustomerApi().sendOtp(
+    //     phone: model.phone,
+    //     type: 'register',
+    //     validationToken: t,
+    //   ),
+    // );
 
     if (isInitial) isInitialLoading.value = false;
     isLoading.value = false;
@@ -105,29 +105,29 @@ class SignUpOtpController extends IOController {
       val?.isEnabled = true;
     });
 
-    final token = await showValidationTokenDialog();
-    if (token == null || token.isEmpty) {
-      isLoading.value = false;
-      nextButton.update((val) {
-        val?.isEnabled = false;
-      });
-      return;
-    }
+    // final token = await showValidationTokenDialog();
+    // if (token == null || token.isEmpty) {
+    //   isLoading.value = false;
+    //   nextButton.update((val) {
+    //     val?.isEnabled = false;
+    //   });
+    //   return;
+    // }
     var response = await CustomerApi().checkOtp(
       phone: model.phone,
       type: 'register',
       otp: otpField.value,
-      validationToken: token,
+      // validationToken: token,
     );
-    response = await retryWithCaptchaIfRequired(
-      response,
-      (t) => CustomerApi().checkOtp(
-        phone: model.phone,
-        type: 'register',
-        otp: otpField.value,
-        validationToken: t,
-      ),
-    );
+    // response = await retryWithCaptchaIfRequired(
+    //   response,
+    //   (t) => CustomerApi().checkOtp(
+    //     phone: model.phone,
+    //     type: 'register',
+    //     otp: otpField.value,
+    //     validationToken: t,
+    //   ),
+    // );
 
     isLoading.value = false;
     nextButton.update((val) {

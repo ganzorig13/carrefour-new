@@ -67,26 +67,26 @@ class PhoneChangeOtpController extends IOController {
     if (isInitial) isInitialLoading.value = true;
     startLoading();
 
-    final token = await showValidationTokenDialog();
-    if (token == null || token.isEmpty) {
-      if (isInitial) isInitialLoading.value = false;
-      stopLoading();
-      return;
-    }
+    // final token = await showValidationTokenDialog();
+    // if (token == null || token.isEmpty) {
+    //   if (isInitial) isInitialLoading.value = false;
+    //   stopLoading();
+    //   return;
+    // }
 
     var response = await CustomerApi().sendOtp(
       phone: phone,
       type: 'phone_change',
-      validationToken: token.isNotEmpty ? token : null,
+      // validationToken: token.isNotEmpty ? token : null,
     );
-    response = await retryWithCaptchaIfRequired(
-      response,
-      (t) => CustomerApi().sendOtp(
-        phone: phone,
-        type: 'phone_change',
-        validationToken: t,
-      ),
-    );
+    // response = await retryWithCaptchaIfRequired(
+    //   response,
+    //   (t) => CustomerApi().sendOtp(
+    //     phone: phone,
+    //     type: 'phone_change',
+    //     validationToken: t,
+    //   ),
+    // );
 
     if (isInitial) isInitialLoading.value = false;
     stopLoading();
@@ -107,26 +107,26 @@ class PhoneChangeOtpController extends IOController {
 
   Future checkOtp() async {
     startLoading();
-    final token = await showValidationTokenDialog();
-    if (token == null || token.isEmpty) {
-      stopLoading();
-      return;
-    }
+    // final token = await showValidationTokenDialog();
+    // if (token == null || token.isEmpty) {
+    //   stopLoading();
+    //   return;
+    // }
     var response = await CustomerApi().checkOtp(
       phone: phone,
       type: 'phone_change',
       otp: otpField.value,
-      validationToken: token,
+      // validationToken: token,
     );
-    response = await retryWithCaptchaIfRequired(
-      response,
-      (t) => CustomerApi().checkOtp(
-        phone: phone,
-        type: 'phone_change',
-        otp: otpField.value,
-        validationToken: t,
-      ),
-    );
+    // response = await retryWithCaptchaIfRequired(
+    //   response,
+    //   (t) => CustomerApi().checkOtp(
+    //     phone: phone,
+    //     type: 'phone_change',
+    //     otp: otpField.value,
+    //     validationToken: t,
+    //   ),
+    // );
 
     if (response.isSuccess) {
       final token = response.json['token'].stringValue;
