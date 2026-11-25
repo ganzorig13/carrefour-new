@@ -25,6 +25,7 @@ enum MenuTabItemType {
   giftCard(title: 'Gift card', icon: 'gift_card.svg'),
   pointHistory(title: 'Онооны түүх', icon: 'coin.svg'),
   buyHistory(title: 'Худалдан авалтын түүх', icon: 'recipe.svg'),
+  onlineOrderHistory(title: 'Онлайн захиалгын түүх', icon: 'cart.svg'),
   myFinance(title: 'Миний санхүү', icon: 'chart.svg'),
   pinChange(title: 'Гүйлгээний нууц үг солих', icon: 'key.svg'),
   biometric(title: 'Биометр тохиргоо', icon: 'face.svg'),

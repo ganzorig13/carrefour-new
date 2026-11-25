@@ -2,6 +2,7 @@ import 'package:carrefour/library/library.dart';
 import 'package:carrefour/screens/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:carrefour/screens/menu/online_order/widgets/active_orders_widget.dart';
 
 class MenuTabScreen extends StatelessWidget {
   final controller = Get.put(MenuTabController());
@@ -32,6 +33,10 @@ class MenuTabScreen extends StatelessWidget {
                       onTap: controller.onTapProfile,
                     ),
                     const SizedBox(height: 16),
+                    if (ecom) ...[
+                      const ActiveOrdersWidget(),
+                      const SizedBox(height: 16),
+                    ],
                     ListView.separated(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),

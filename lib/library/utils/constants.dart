@@ -2,6 +2,8 @@
 
 const domain = 'https://loyalty.carrefour.mn';
 
+const bool ecom = true;
+
 // const domain = 'http://192.168.0.24:8000';
 // const domain = 'http://13.212.104.165/';
 

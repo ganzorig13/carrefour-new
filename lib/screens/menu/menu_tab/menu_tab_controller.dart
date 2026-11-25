@@ -20,6 +20,7 @@ class MenuTabController extends IOSuperController {
           MenuTabItemModel(type: MenuTabItemType.giftCard),
           MenuTabItemModel(type: MenuTabItemType.pointHistory),
           MenuTabItemModel(type: MenuTabItemType.buyHistory),
+          if (ecom) MenuTabItemModel(type: MenuTabItemType.onlineOrderHistory),
           MenuTabItemModel(type: MenuTabItemType.myFinance),
         ],
       ),
@@ -129,6 +130,9 @@ class MenuTabController extends IOSuperController {
         break;
       case MenuTabItemType.buyHistory:
         MenuRoute.toPurchaseHistory();
+        break;
+      case MenuTabItemType.onlineOrderHistory:
+        if (ecom) MenuRoute.toOnlineOrderHistory();
         break;
       case MenuTabItemType.myFinance:
         MenuRoute.toMyFinance();

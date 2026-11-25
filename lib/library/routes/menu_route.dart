@@ -1,8 +1,15 @@
 import 'package:carrefour/screens/menu/gift_employee_cards/gift_cards_detail/gift_cards_detail_binding.dart';
 import 'package:carrefour/screens/screens.dart';
 import 'package:get/get.dart';
+import 'package:carrefour/library/utils/constants.dart';
+import 'package:carrefour/screens/menu/online_order/online_order_history_screen.dart';
 
 class MenuRoute {
+  static toOnlineOrderHistory() {
+    if (!ecom) return null;
+    return Get.to(() => const OnlineOrderHistoryScreen());
+  }
+
   static toProfile() {
     return Get.to(
       () => const ProfileScreen(),
