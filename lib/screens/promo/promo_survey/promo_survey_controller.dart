@@ -60,7 +60,10 @@ class PromoSurveyController extends IOController {
 
     if (response.isSuccess) {
       Get.back();
-      Get.find<PromoPageController>().refreshNotifier.notify();
+      // ecom горимд Урамшуулал дэлгэц нээлттэй биш байж болно (Лояалти tab-аас нээгдсэн үед).
+      if (Get.isRegistered<PromoPageController>()) {
+        Get.find<PromoPageController>().refreshNotifier.notify();
+      }
     } else {
       showError(text: response.msg);
     }

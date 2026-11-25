@@ -6,33 +6,72 @@ import 'package:g_json/g_json.dart';
 import 'package:get/get.dart';
 
 class TabBarController extends IOController {
-  final tabItems = [
-    TabBarModel(
-      icon: 'shop.svg',
-      label: 'Нүүр',
-      screen: HomeScreen(),
-    ),
-    TabBarModel(
-      icon: 'catalogy.svg',
-      label: 'Каталоги',
-      screen: CatalogListScreen(),
-    ),
-    TabBarModel(
-      icon: 'qr.svg',
-      isFab: true,
-      screen: Container(),
-    ),
-    TabBarModel(
-      icon: 'coupon.svg',
-      label: 'Урамшуулал',
-      screen: PromoPageScreen(),
-    ),
-    TabBarModel(
-      icon: 'menu.svg',
-      label: 'Цэс',
-      screen: MenuTabScreen(),
-    ),
-  ];
+  final tabItems = ecom ? _ecomTabItems : _loyaltyTabItems;
+
+  // ecom: Дэлгүүр · Лояалти · QR · Дуртай · Профайл.
+  // Каталоги, Урамшуулал нь Лояалти tab дотроос нээгдэнэ.
+  static List<TabBarModel> get _ecomTabItems => [
+        TabBarModel(
+          icon: 'shop.svg',
+          label: 'Дэлгүүр',
+          screen: const TabBarPlaceholderScreen(
+            icon: 'shop.svg',
+            text: 'Дэлгүүр удахгүй нээгдэнэ',
+          ),
+        ),
+        TabBarModel(
+          icon: 'coupon.svg',
+          label: 'Лояалти',
+          screen: HomeScreen(),
+        ),
+        TabBarModel(
+          icon: 'qr.svg',
+          isFab: true,
+          screen: Container(),
+        ),
+        TabBarModel(
+          icon: 'favorite.svg',
+          label: 'Дуртай',
+          screen: const TabBarPlaceholderScreen(
+            icon: 'favorite.svg',
+            text: 'Дуртай бүтээгдэхүүн байхгүй',
+          ),
+        ),
+        TabBarModel(
+          icon: 'user.svg',
+          label: 'Профайл',
+          screen: MenuTabScreen(),
+        ),
+      ];
+
+  // Хуучин loyalty апп: Нүүр · Каталоги · QR · Урамшуулал · Цэс.
+  static List<TabBarModel> get _loyaltyTabItems => [
+        TabBarModel(
+          icon: 'shop.svg',
+          label: 'Нүүр',
+          screen: HomeScreen(),
+        ),
+        TabBarModel(
+          icon: 'catalogy.svg',
+          label: 'Каталоги',
+          screen: CatalogListScreen(),
+        ),
+        TabBarModel(
+          icon: 'qr.svg',
+          isFab: true,
+          screen: Container(),
+        ),
+        TabBarModel(
+          icon: 'coupon.svg',
+          label: 'Урамшуулал',
+          screen: PromoPageScreen(),
+        ),
+        TabBarModel(
+          icon: 'menu.svg',
+          label: 'Цэс',
+          screen: MenuTabScreen(),
+        ),
+      ];
   final tabIndex = 0.obs;
   final notificationCount = 0.obs;
 

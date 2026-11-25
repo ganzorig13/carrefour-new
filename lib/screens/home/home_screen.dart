@@ -28,6 +28,17 @@ class HomeScreen extends StatelessWidget {
                 count: controller.count.value,
                 onTapNotfication: controller.onTapNotfication,
               ),
+              if (ecom)
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(24, 24, 24, 0),
+                    child: HomeLoyaltyMenuWidget(
+                      onTapPromo: controller.onTapPromoMore,
+                      onTapCatalog: controller.onTapCatalogyMore,
+                      // Карт: одоогоор үйлдэлгүй (phase 2)
+                    ),
+                  ),
+                ),
               controller.giftCards.filteredCards.isNotEmpty
                   ? SliverToBoxAdapter(
                       child: HomeGiftCardsWidget(

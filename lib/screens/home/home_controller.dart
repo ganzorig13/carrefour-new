@@ -48,12 +48,21 @@ class HomeController extends IOController {
     QrPaySheet(qrString: qr).show();
   }
 
+  // ecom горимд Урамшуулал, Каталоги нь tab биш тул тусдаа дэлгэцээр нээгдэнэ.
   void onTapPromoMore() {
+    if (ecom) {
+      AppRoute.toPromoPage();
+      return;
+    }
     final tab = Get.find<TabBarController>();
     tab.onTabChanged(3);
   }
 
   void onTapCatalogyMore() {
+    if (ecom) {
+      AppRoute.toCatalogList();
+      return;
+    }
     final tab = Get.find<TabBarController>();
     tab.onTabChanged(1);
   }

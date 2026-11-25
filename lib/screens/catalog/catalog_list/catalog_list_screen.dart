@@ -5,16 +5,21 @@ import 'package:get/get.dart';
 
 class CatalogListScreen extends StatelessWidget {
   final controller = Get.put(CatalogListController());
-  CatalogListScreen({super.key});
+
+  /// Тусдаа дэлгэцээр нээх үед (ecom) буцах товчтой appBar дамжуулна.
+  /// null бол tab-ын appBar харагдана.
+  final PreferredSizeWidget? appBar;
+  CatalogListScreen({super.key, this.appBar});
 
   @override
   Widget build(BuildContext context) {
     return Obx(
       () => IOScaffold(
-        appBar: TabBarAppBarWidget(
-          count: controller.count.value,
-          onTapNotfication: controller.onTapNotfication,
-        ),
+        appBar: appBar ??
+            TabBarAppBarWidget(
+              count: controller.count.value,
+              onTapNotfication: controller.onTapNotfication,
+            ),
         body: controller.isInitialLoading.value
             ? const IOLoading()
             : IORefresher(

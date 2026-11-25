@@ -1,3 +1,4 @@
+import 'package:carrefour/library/library.dart';
 import 'package:carrefour/screens/screens.dart';
 import 'package:get/get.dart';
 
@@ -24,6 +25,19 @@ class AppRoute {
         items: items,
       ),
       fullscreenDialog: true,
+    );
+  }
+
+  // ecom горимд Лояалти tab-аас нээгдэнэ (хуучин аппад эдгээр нь tab байсан).
+  static Future? toCatalogList() {
+    return Get.to(
+      () => CatalogListScreen(appBar: IOAppBar(titleText: 'Каталог')),
+    );
+  }
+
+  static Future? toPromoPage() {
+    return Get.to(
+      () => PromoPageScreen(appBar: IOAppBar(titleText: 'Урамшуулал')),
     );
   }
 

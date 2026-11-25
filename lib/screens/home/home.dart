@@ -2,6 +2,7 @@ export 'models/home_banner_model.dart';
 export 'widgets/home_appbar_widget.dart';
 export 'widgets/home_banner_widget.dart';
 export 'widgets/home_catalogy_widget.dart';
+export 'widgets/home_loyalty_menu_widget.dart';
 export 'widgets/home_point_widget.dart';
 export 'widgets/home_promo_banner_widget.dart';
 export 'widgets/home_qr_dialog_widget.dart';
